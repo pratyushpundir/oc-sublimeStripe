@@ -1,0 +1,118 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+
+    fields:
+
+        stripe_publishable_key:
+            label: Stripe Publishable Key
+            span: left
+            required: true
+            tab: Stripe API
+
+        stripe_secret_key:
+            label: Stripe Secret Key
+            span: right
+            required: true
+            tab: Stripe API
+
+        test_mode:
+            label: Test Mode
+            span: left
+            type: switch
+            comment: Enable TEST mode? This is just so the assets are minified and concatenated. This setting has nothing to do with Stripe itself. The Stripe keys you use above is what dictate whether you are 'Live' or in 'Test' mode.
+            tab: Stripe API
+
+        product_model:
+            label: Product Model
+            span: left
+            required: true
+            tab: Model Mappings
+            comment: Fully-qualified class name of your Product model. Ex. - 'SublimeArts\DemoShop\Models\Product'
+
+        user_model:
+            label: User Model
+            span: right
+            tab: Model Mappings
+            comment: Fully-qualified class name of your User model. Ex. - 'RainLab\User\Models\User'
+
+        id_attribute:
+            label: Model Attribute for 'id'
+            span: left
+            # type: partial
+            # path: '~/plugins/sublimearts/sublimestripe/models/settings/_attribute_selection.htm'
+            required: true
+            tab: Model Mappings
+            comment: Attribute on your model class that should be used for UNIQUELY identifying a record. Ex. - 'id'
+
+        name_attribute:
+            label: Model Attribute for 'name'
+            span: right
+            required: true
+            tab: Model Mappings
+            comment: Attribute on your model class that should be used for the 'name' property needed by Stripe
+
+        description_attribute:
+            label: Model Attribute for 'description'
+            span: left
+            required: true
+            tab: Model Mappings
+            comment: Attribute on your model class that should be used for the 'description' property needed by Stripe
+
+        amount_attribute:
+            label: Model Attribute for 'amount'
+            span: right
+            required: true
+            tab: Model Mappings
+            comment: "Attribute on your model class that should be used for the 'amount' property needed by Stripe. NOTE: Needs to be in cents."
+
+        # target_model:
+        #     label: Target Model
+        #     span: left
+        #     type: partial
+        #     path: '~/plugins/sublimearts/sublimestripe/models/settings/_target_model_selection.htm'
+        #     required: true
+        #     tab: Custom
+        
+        container_html_element:
+            label: Container Element
+            span: left
+            required: true
+            tab: Site Integration
+            comment: Selector for the element that fully CONTAINS your product list. Ex. - '#product-list'
+
+        post_uri:
+            label: Post URI
+            span: left
+            default: 'stripe/checkout'
+            required: true
+            tab: Site Integration
+            comment: URI for the checkout button to POST to. Ex. - 'stripe/checkout'
+        
+        redirect_uri:
+            label: Redirect URI
+            span: right
+            required: true
+            tab: Site Integration
+            comment: URI to redirect to on successful payment. Ex. - 'stripe/payment/success'
+
+        store_image:
+            label: Store Image
+            span: left
+            required: true
+            type: fileupload
+            mode: image
+            imageWidth: 200
+            imageHeight: 200
+            tab: Styling
+            commentAbove: Image to be used for the checkout-form modal. Stick to a 200x200 image.
+
+        button_classes:
+            label: Button Classes
+            span: right
+            required: true
+            default: 'btn btn-primary'
+            tab: Styling
+            comment: Space separated list of class names to be applied to the checkout button. Defaults to 'btn btn-primary'

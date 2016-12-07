@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Payment
+
+# Model Form Field configuration
+form: $/sublimearts/sublimestripe/models/payment/fields.yaml
+
+# Model Class name
+modelClass: SublimeArts\SublimeStripe\Models\Payment
+
+# Default redirect location
+defaultRedirect: sublimearts/sublimestripe/payments
+
+# Create page
+create:
+    title: Create Payment
+    redirect: sublimearts/sublimestripe/payments/update/:id
+    redirectClose: sublimearts/sublimestripe/payments
+
+# Update page
+update:
+    title: Edit Payment
+    redirect: sublimearts/sublimestripe/payments
+    redirectClose: sublimearts/sublimestripe/payments
+
+# Preview page
+preview:
+    title: Preview Payment

@@ -1,0 +1,26 @@
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+<script>
+    window.SublimeStripeData = {
+        key: "{{ stripeKey }}",
+        containerElement: "{{ stripeContainerElement }}",
+        postUri: "{{ stripePostUri }}",
+        baseUri: "{{ ''|app }}",
+        redirectUri: "{{ stripeRedirectUri }}",
+        storeImage: "{{ [''|app, stripeStoreImage]|join }}",
+        loggedEmail: {% if user %}
+            "{{ user.email }}"
+        {% else %}
+            null
+        {% endif %}
+    };
+</script>
+
+<template id="sa-stripe-checkout-button-template">
+    <form action="" method="POST">
+        <button class="{{ stripeButtonClasses }}"
+                @click.prevent="checkout">
+            {{ saStripeButtonText }}
+        </button>
+    </form>
+</template>
