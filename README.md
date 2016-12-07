@@ -3,11 +3,11 @@ A simple plugin that provides a checkout button and simple backend integration w
 
 ### Some Screenshots
 ![Checkout Buttons in a Product Listing](/screenshots/01-frontend-checkout-button.png?raw=true "Checkout Buttons in a Product Listing")
-![Stripe Checkout Form](/screenshots/01-frontend-checkout-button.png?raw=true "Checkout Buttons in a Product Listing")
-![Backend Settings - API Keys](/screenshots/01-frontend-checkout-button.png?raw=true "Checkout Buttons in a Product Listing")
-![Backend Settings - Model Mapping](/screenshots/01-frontend-checkout-button.png?raw=true "Backend Settings - Model Mapping")
-![Backend Settings - Site Integration](/screenshots/01-frontend-checkout-button.png?raw=true "Backend Settings - Site Integration")
-![Backend Settings - Styling](/screenshots/01-frontend-checkout-button.png?raw=true "Backend Settings - Styling")
+![Stripe Checkout Form](/screenshots/02-frontend-checkout-form-open.png?raw=true "Checkout Buttons in a Product Listing")
+![Backend Settings - API Keys](/screenshots/03-backend-api-keys.png?raw=true "Checkout Buttons in a Product Listing")
+![Backend Settings - Model Mapping](/screenshots/04-backend-model-mappings.png?raw=true "Backend Settings - Model Mapping")
+![Backend Settings - Site Integration](/screenshots/05-backend-site-integration.png?raw=true "Backend Settings - Site Integration")
+![Backend Settings - Styling](/screenshots/06-backend-styling.png?raw=true "Backend Settings - Styling")
 
 
 ### Setup part 1 - Stripe.com
