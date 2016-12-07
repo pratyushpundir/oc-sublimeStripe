@@ -1,20 +1,20 @@
 ### Sublime Stripe - WORK IN PROGRESS! USE AT YOUR OWN RISK!
 A simple plugin that provides a checkout button and simple backend integration with the the awesome [Stripe](https://stripe.com/) service for payment handling on any [OctoberCMS](https://octobercms.com/) site.
 
-### Setup 1 - Stripe.com
+### Setup part 1 - Stripe.com
 1. Create a free account on [Stripe](https://stripe.com/).
 2. Login to Stripe once you have confirmed your email address.
 3. Visit https://dashboard.stripe.com/account/apikeys and make a copy of both your Secret and Publishable keys. Make sure to use the pair relevant to what you are doing, aka, testing or working on your live server.
 4. Visit your own site's backend panel and keep reading.
 
-### Setup 2 - Your OctoberCMS website backend
+### Setup part 2 - Your OctoberCMS website backend
 1. Create a folder called "sublimearts" in your project's "plugins" directory.
 2. Clone or download this repo inside the directory you created above. Make sure this new cloned/downloaded directory is named "sublimestripe". Your directory structure should look something like ```OctoberSite\plugins\sublimearts\sublimestripe```.
 1. Login to the Backend and visit Settings. Look for Sublime Stripe under MISC OR just search for "Stripe" in the left sidebar on the Settings page.
 2. Set your API keys in the fields provided. Move on to other tabs.
 3. Visit every tab in Sublime Stripe Settings, pay attention to comments under each field and make sure you do not miss anything.
 
-### Setup 3 - Components
+### Setup part 3 - Components
 Sublime Stripe provides 2 components, both of which are required.
 
 1. Include the "stripeJS" component and the ```{% scripts %}``` tag in any layout that needs to host a page where the checkout button might need to appear. Make sure the component is included BEFORE the ```{% scripts %}``` tag. Your setup should look something like this:
