@@ -116,3 +116,9 @@ tabs:
             default: 'btn btn-primary'
             tab: Styling
             comment: Space separated list of class names to be applied to the checkout button. Defaults to 'btn btn-primary'
+
+        hide_rainlab_user_backend_menu:
+            label: Hide RainLab.User Backend Menu Item
+            span: left
+            type: switch
+            tab: Misc

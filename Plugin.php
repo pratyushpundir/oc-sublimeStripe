@@ -1,6 +1,6 @@
 <?php namespace SublimeArts\SublimeStripe;
 
-use Backend;
+use Backend, Event;
 use System\Classes\PluginBase;
 use SublimeArts\SublimeStripe\Models\Settings;
 use SublimeArts\SublimeStripe\Models\User;
@@ -94,6 +94,68 @@ class Plugin extends PluginBase
             ];
 
         });
+
+        Event::listen('backend.menu.extendItems', function($manager) {
+
+            if (Settings::get('hide_rainlab_user_backend_menu')) {
+                
+            }
+
+            $manager->removeMainMenuItem('RainLab.User', 'user');
+            $manager->addMainMenuItems('RainLab.User', [
+                'user' => [
+                    'label' => 'Users & Payments',
+                    'icon' => 'icon-cc-stripe',
+                    'url' => Backend::url('rainlab/user/users'),
+                    'permissions' => ['sublimearts.sublimestripe.*'],
+                ]
+            ]);
+            $manager->addSideMenuItems('RainLab.User', 'user', [
+                'users' => [
+                    'label' => 'Users',
+                    'icon' => 'icon-users',
+                    'url' => Backend::url('rainlab/user/users'),
+                    'permissions' => ['sublimearts.sublimestripe.*'],
+                ],
+                'payments' => [
+                    'label' => 'Payments',
+                    'icon' => 'icon-cc-stripe',
+                    'url'  => Backend::url('sublimearts/sublimestripe/payments'),
+                    'permissions' => ['sublimearts.sublimestripe.*'],
+                ]
+            ]);
+
+        });
+
+        /** Add some extra columns */
+        Event::listen('backend.list.extendColumns', function($widget) {
+
+            // Only for the User controller
+            if (!$widget->getController() instanceof \RainLab\User\Controllers\Users) {
+                return;
+            }
+
+            // Only for the User model
+            if (!$widget->model instanceof \RainLab\User\Models\User) {
+                return;
+            }
+
+            // Add extra columns
+            $widget->addColumns([
+                'stripe_id' => [
+                    'label' => 'Stripe ID',
+                    'type' => 'partial',
+                    'path' => '$/sublimearts/sublimestripe/models/user/_stripe_id.htm',
+                    'clickable' => false
+                ],
+                'stripe_active' => [
+                    'label' => 'Currently Active?',
+                    'type' => 'partial',
+                    'path' => '$/sublimearts/sublimestripe/models/user/_stripe_active.htm',
+                    'clickable' => false
+                ]
+            ]);
+        });
     }
 
     /**
@@ -135,6 +197,7 @@ class Plugin extends PluginBase
      */
     public function registerNavigation()
     {
+        return [];
         return [
             'sublimestripe' => [
                 'label'       => 'Sublime Stripe',

@@ -22,6 +22,7 @@ class Settings extends Model
         "post_uri" => "'POST URI'",
         "redirect_uri" => "'Redirect URI'",
         "button_classes" => "'Button Classes'",
+        "hide_rainlab_user_backend_menu" => "'Hide RainLab.User Backend Menu Item'",
     ];
 
     public $implement = ['System.Behaviors.SettingsModel'];
@@ -37,6 +38,7 @@ class Settings extends Model
         $this->post_uri = 'stripe/checkout';
         $this->redirect_uri = 'stripe/checkout/success';
         $this->button_classes = 'btn btn-primary';
+        $this->hide_rainlab_user_backend_menu = true;
     }
 
     public $settingsCode = 'sublimearts_sublime_stripe_settings';

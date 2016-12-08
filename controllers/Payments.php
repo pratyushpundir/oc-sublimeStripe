@@ -19,7 +19,6 @@ class Payments extends Controller
     public function __construct()
     {
         parent::__construct();
-
-        BackendMenu::setContext('SublimeArts.SublimeStripe', 'sublimestripe', 'payments');
+        BackendMenu::setContext('RainLab.User', 'user', 'payments');
     }
 }

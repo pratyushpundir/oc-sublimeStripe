@@ -3,19 +3,19 @@
 # ===================================
 
 columns:
-    # user_name:
-    #     label: User Name
-    #     type: partial
-    #     path: '~/plugins/sublimearts/sublimestripe/models/payment/_user_name.htm'
-    #     searchable: false
-    #     sortable: false
+    user_name:
+        label: User Name
+        type: partial
+        path: '~/plugins/sublimearts/sublimestripe/models/payment/_user_name.htm'
+        searchable: false
+        sortable: false
 
-    # user_email:
-    #     label: User Email
-    #     type: partial
-    #     path: '~/plugins/sublimearts/sublimestripe/models/payment/_user_email.htm'
-    #     searchable: false
-    #     sortable: false
+    user_email:
+        label: User Email
+        type: partial
+        path: '~/plugins/sublimearts/sublimestripe/models/payment/_user_email.htm'
+        searchable: false
+        sortable: false
 
     amount_in_cents:
         label: Amount Paid
@@ -27,12 +27,14 @@ columns:
         label: Stripe Charge ID
         searchable: true
         sortable: true
+        default: Not Available
         clickable: false
 
     stripe_invoice:
         label: 'Stripe Invoice #'
         searchable: true
         sortable: true
+        default: Not Available
         clickable: false
 
     created_at:

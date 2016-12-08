@@ -1,0 +1,15 @@
+<?php
+    if ($record->singleCharge) {
+        $user = $record->singleCharge->user;
+    } else {
+        $user = $record->subscription->user;
+    }
+
+    if ($user) {
+        $value = $user->baseUser->name;
+    } else {
+        $value = 'User has been Deleted';
+    }
+?>
+
+<?= $value ?>

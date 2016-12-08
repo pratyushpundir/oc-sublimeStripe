@@ -21,6 +21,7 @@ columns:
     stripe_id:
         label: Stripe Customer ID
         searchable: true
+        clickable: false
 
     stripe_active: 
         label: Stripe Active
@@ -28,3 +29,15 @@ columns:
         path: '~/plugins/sublimearts/sublimestripe/models/user/_stripe_active.htm'
         searchable: false
         sortable: false
+
+    registration_date:
+        label: Registered On
+        relation: baseUser
+        select: created_at
+        type: timetense
+
+    last_seen:
+        label: Last Seen On
+        type: timetense
+        relation: baseUser
+        select: last_seen
