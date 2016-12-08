@@ -2,12 +2,12 @@
 A simple plugin that provides a checkout button and simple backend integration with the the awesome [Stripe](https://stripe.com/) service for payment handling on any [OctoberCMS](https://octobercms.com/) site.
 
 ### Some Screenshots
-![Checkout Buttons in a Product Listing](/screenshots/01-frontend-checkout-button.png?raw=true "Checkout Buttons in a Product Listing")
-![Stripe Checkout Form](/screenshots/02-frontend-checkout-form-open.png?raw=true "Checkout Buttons in a Product Listing")
-![Backend Settings - API Keys](/screenshots/03-backend-api-keys.png?raw=true "Checkout Buttons in a Product Listing")
-![Backend Settings - Model Mapping](/screenshots/04-backend-model-mappings.png?raw=true "Backend Settings - Model Mapping")
-![Backend Settings - Site Integration](/screenshots/05-backend-site-integration.png?raw=true "Backend Settings - Site Integration")
-![Backend Settings - Styling](/screenshots/06-backend-styling.png?raw=true "Backend Settings - Styling")
+![Checkout Buttons in a Product Listing](/assets/images/01-frontend-checkout-button.png?raw=true "Checkout Buttons in a Product Listing")
+![Stripe Checkout Form](/assets/images/02-frontend-checkout-form-open.png?raw=true "Checkout Buttons in a Product Listing")
+![Backend Settings - API Keys](/assets/images/03-backend-api-keys.png?raw=true "Checkout Buttons in a Product Listing")
+![Backend Settings - Model Mapping](/assets/images/04-backend-model-mappings.png?raw=true "Backend Settings - Model Mapping")
+![Backend Settings - Site Integration](/assets/images/05-backend-site-integration.png?raw=true "Backend Settings - Site Integration")
+![Backend Settings - Styling](/assets/images/06-backend-styling.png?raw=true "Backend Settings - Styling")
 
 
 ### Setup part 1 - Stripe.com
@@ -83,6 +83,7 @@ public function init()
 - [ ] Setup more useful backend pages.
 - [ ] Figure out integration with User models. Either add a dependency on RainLab.User or allow for any custom User model to be used which might end up being tricky.
 - [ ] Stripe webhooks integration.
+- [ ] Add transactional email and some mail templates.
 
 
 ### Developer Info

@@ -106,6 +106,7 @@ class Plugin extends PluginBase
                 'user' => [
                     'label' => 'Users & Payments',
                     'icon' => 'icon-cc-stripe',
+                    'iconSvg' => 'plugins/sublimearts/sublimestripe/assets/images/stripe-icon.svg',
                     'url' => Backend::url('rainlab/user/users'),
                     'permissions' => ['sublimearts.sublimestripe.*'],
                 ]
@@ -203,6 +204,7 @@ class Plugin extends PluginBase
                 'label'       => 'Sublime Stripe',
                 'url'         => Backend::url('sublimearts/sublimestripe/users'),
                 'icon'        => 'icon-cc-stripe',
+                'iconSvg'     => 'plugins/sublimearts/sublimestripe/assets/images/stripe-icon.svg',
                 'permissions' => ['sublimearts.sublimestripe.manage_sublime_stripe'],
                 'order'       => 500,
 
