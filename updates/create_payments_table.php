@@ -12,8 +12,8 @@ class CreatePaymentsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
 
-            $table->smallInteger('subscription_id')->unsigned()->nullable();
-            $table->smallInteger('single_charge_id')->unsigned()->nullable();
+            $table->smallInteger('billable_id')->unsigned()->nullable();
+            $table->string('billable_type')->nullable();
 
             $table->smallInteger('ip_address')->nullable();
             $table->double('amount_in_cents')->nullable();

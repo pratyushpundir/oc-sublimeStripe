@@ -29,11 +29,6 @@ class SingleCharge extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = [
-        'payment' => [
-            'SublimeArts\SublimeStripe\Models\Payment'
-        ]
-    ];
     public $belongsTo = [
         'user' => [
             'SublimeArts\SublimeStripe\Models\User'
@@ -42,11 +37,11 @@ class SingleCharge extends Model
             'SublimeArts\DemoShop\Models\Product'
         ]
     ];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+    public $morphOne = [
+        'payment' => [
+            'SublimeArts\SublimeStripe\Models\Payment',
+            'name' => 'billable'
+        ]
+    ];
 
 }

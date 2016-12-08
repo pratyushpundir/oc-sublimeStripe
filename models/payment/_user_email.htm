@@ -1,15 +1,9 @@
 <?php
-    if ($record->singleCharge) {
-        $user = $record->singleCharge->user;
-    } else {
-        $user = $record->subscription->user;
+    if ($billable = $record->billable) {
+        $user = $billable->user->baseUser;
     }
 
-    if ($user) {
-        $value = $user->baseUser->email;
-    } else {
-        $value = 'User has been Deleted';
-    }
+    $value = $user->email
 ?>
 
 <?= $value ?>

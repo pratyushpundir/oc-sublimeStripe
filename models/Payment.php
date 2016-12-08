@@ -16,6 +16,13 @@ class Payment extends Model
     public $table = 'sublimearts_sublimestripe_payments';
 
     /**
+     * @var string The database table used by the model.
+     */
+    public $morphTo = [
+        'billable' => []
+    ];
+
+    /**
      * @var array The date properties.
      */
     protected $dates = ['deleted_at'];
