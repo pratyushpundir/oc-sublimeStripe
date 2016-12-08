@@ -1,0 +1,30 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+
+    name: 
+        label: Name
+        relation: baseUser
+        select: name
+        searchable: true
+        sortable: true
+    
+    email: 
+        label: Email
+        relation: baseUser
+        select: email
+        searchable: true
+        sortable: true
+
+    stripe_id:
+        label: Stripe Customer ID
+        searchable: true
+
+    stripe_active: 
+        label: Stripe Active
+        type: partial
+        path: '~/plugins/sublimearts/sublimestripe/models/user/_stripe_active.htm'
+        searchable: false
+        sortable: false

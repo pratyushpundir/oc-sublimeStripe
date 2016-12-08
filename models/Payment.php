@@ -36,7 +36,12 @@ class Payment extends Model
      * @var array Relations
      */
     public $belongsTo = [
-        
+        'subscription' => [
+            'SublimeArts\SublimeStripe\Models\Subscription'
+        ],
+        'singleCharge' => [
+            'SublimeArts\SublimeStripe\Models\SingleCharge'
+        ],
     ];
     
 }

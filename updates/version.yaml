@@ -1,3 +1,6 @@
 1.0.1: 
     - First version of Sublime Stripe
+    - create_users_table.php
+    - create_subscriptions_table.php
+    - create_single_charges_table.php
     - create_payments_table.php

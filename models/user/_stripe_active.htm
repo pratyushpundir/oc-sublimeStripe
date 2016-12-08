@@ -1,0 +1,19 @@
+<?php if ( $record->stripe_active ) : ?>
+    <label class="custom-switch">
+        <input type="checkbox" disabled="disabled" checked="checked" onclick="false"/>
+        <span>
+            <span>Yes</span>
+            <span>No</span>
+        </span>
+        <a class="slide-button"></a>
+    </label>
+<?php else : ?>
+    <label class="custom-switch">
+        <input type="checkbox" disabled="disabled" onclick="false"/>
+        <span>
+            <span>Yes</span>
+            <span>No</span>
+        </span>
+        <a class="slide-button"></a>
+    </label>
+<?php endif ?>

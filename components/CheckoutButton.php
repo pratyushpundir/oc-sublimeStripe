@@ -48,8 +48,14 @@ class CheckoutButton extends ComponentBase
      */
     public function nativeProduct()
     {
-        $model = Settings::targetModelClass();
-        $product = $model::where('id', $this->property('productId'))->first();
+        $model = Settings::productModelClass();
+        
+        try {
+            $product = $model::where('id', $this->property('productId'))->first();
+        } catch (Exception $e) {
+            throw new Exception("No product found", 1);    
+        }
+
         return $product;
     }
 

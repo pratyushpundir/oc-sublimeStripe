@@ -17,11 +17,13 @@ A simple plugin that provides a checkout button and simple backend integration w
 4. Visit your own site's backend panel and keep reading.
 
 ### Setup part 2 - Your OctoberCMS website backend
-1. Create a folder called "sublimearts" in your project's "plugins" directory.
-2. Clone or download this repo inside the directory you created above. Make sure this new cloned/downloaded directory is named "sublimestripe". Your directory structure should look something like ```OctoberSite\plugins\sublimearts\sublimestripe```.
-1. Login to the Backend and visit Settings. Look for Sublime Stripe under MISC OR just search for "Stripe" in the left sidebar on the Settings page.
-2. Set your API keys in the fields provided. Move on to other tabs.
-3. Visit every tab in Sublime Stripe Settings, pay attention to comments under each field and make sure you do not miss anything.
+1. For now, this plugin has a dependency on the [RainLab.User](https://github.com/rainlab/user-plugin) plugin. Hopefully we will be able to change that in the near future.
+2. Create a folder called "sublimearts" in your project's "plugins" directory.
+3. Clone or download this repo inside the directory you created above. Make sure this new cloned/downloaded directory is renamed to "sublimestripe". Your directory structure should look something like ```OctoberSite\plugins\sublimearts\sublimestripe```.
+4. Login to the Backend and visit Settings. Look for Sublime Stripe under MISC or just search for "Stripe" in the left sidebar on the Settings page.
+5. Set your API keys in the fields provided. Move on to other tabs.
+6. Visit every tab in Sublime Stripe Settings, pay attention to comments under each field and make sure you do not miss anything.
+7. Visit your project root in the terminal and run ```php artisan plugin:refresh SublimeArts.SublimeStripe```.
 
 ### Setup part 3 - Components
 Sublime Stripe provides 2 components, both of which are required.
@@ -74,8 +76,11 @@ public function init()
 
 
 ### TODO
-- [ ] Too much to list here. This is still very much a work in progress. I will update this list in the coming days.
+- [ ] Too much to list here. This is still very much a work in progress. I will keep updating this list in the coming days.
 - [ ] Write tests!!!
+- [ ] Clean up CheckoutRequest. Very hacky right now.
+- [ ] Account for Subscriptions.
+- [ ] Setup more useful backend pages.
 - [ ] Figure out integration with User models. Either add a dependency on RainLab.User or allow for any custom User model to be used which might end up being tricky.
 - [ ] Stripe webhooks integration.
 

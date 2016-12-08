@@ -32,11 +32,11 @@ tabs:
             tab: Model Mappings
             comment: Fully-qualified class name of your Product model. Ex. - 'SublimeArts\DemoShop\Models\Product'
 
-        user_model:
-            label: User Model
-            span: right
-            tab: Model Mappings
-            comment: Fully-qualified class name of your User model. Ex. - 'RainLab\User\Models\User'
+        # user_model:
+        #     label: User Model
+        #     span: right
+        #     tab: Model Mappings
+        #     comment: Fully-qualified class name of your User model. Ex. - 'RainLab\User\Models\User'
 
         id_attribute:
             label: Model Attribute for 'id'

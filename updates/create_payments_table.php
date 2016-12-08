@@ -12,10 +12,12 @@ class CreatePaymentsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
 
-            $table->smallInteger('user_id')->nullable();
+            $table->smallInteger('subscription_id')->unsigned()->nullable();
+            $table->smallInteger('single_charge_id')->unsigned()->nullable();
+
             $table->smallInteger('ip_address')->nullable();
-            $table->longText('charge_id')->nullable();
             $table->double('amount_in_cents')->nullable();
+            $table->longText('stripe_charge_id')->nullable();
             $table->longText('stripe_invoice')->nullable();
             $table->softDeletes();
 

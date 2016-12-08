@@ -29,6 +29,7 @@ class Settings extends Model
     public function initSettingsData()
     {
         $this->test_mode = true;
+        $this->user_model = 'RainLab\User\Models\User';
         $this->id_attribute = 'id';
         $this->name_attribute = 'name';
         $this->description_attribute = 'description';
@@ -66,16 +67,16 @@ class Settings extends Model
      * Returns a fully-qualified and trimmed classname for the target Model Class.
      * @return string
      */
-    public static function targetModelClass()
+    public static function productModelClass()
     {
-        return '\\' . trim(static::get('target_model'));
+        return '\\' . trim(static::get('product_model'));
     }
 
     /**
      * Returns a fully-qualified and trimmed classname for the User Class.
      * @return string
      */
-    public static function userClass()
+    public static function userModelClass()
     {
         return '\\' . trim(static::get('user_model'));
     }
