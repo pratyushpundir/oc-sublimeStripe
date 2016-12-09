@@ -6,6 +6,11 @@ use SublimeArts\SublimeStripe\Http\Requests\CheckoutRequest;
 
 class CheckoutController extends Controller {
 
+    /**
+     * Handle the checkout data
+     * @param  CheckoutRequest $checkoutRequest FormRequest 
+     * @return Http\Response   $reponse
+     */
     public function checkout(CheckoutRequest $checkoutRequest)
     {
         try {

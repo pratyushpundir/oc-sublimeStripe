@@ -5,7 +5,7 @@ use SublimeArts\SublimeStripe\Models\Settings;
 use RainLab\User\Facades\Auth;
 use Stripe\Stripe;
 
-class CheckoutRequest extends FormRequest
+class CheckoutRequest extends FormRequest 
 {
 
     public function authorize()

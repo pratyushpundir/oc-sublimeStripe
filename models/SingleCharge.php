@@ -22,7 +22,14 @@ class SingleCharge extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'user_id',
+        'product_id',
+        'ip_address',
+        'amount_in_cents',
+        'stripe_charge_id',
+        'stripe_invoice',
+    ];
 
     /**
      * @var array Relations
@@ -35,12 +42,32 @@ class SingleCharge extends Model
             'SublimeArts\DemoShop\Models\Product'
         ]
     ];
-    
-    public $morphOne = [
-        'payment' => [
-            'SublimeArts\SublimeStripe\Models\Payment',
-            'name' => 'billable'
-        ]
-    ];
+
+    public function getProductNameAttribute()
+    {
+        if ($this->product) {
+            return $this->product->{Settings::get('name_attribute')};
+        } else {
+            return 'Product not available';
+        }
+    }
+
+    public function getUserNameAttribute()
+    {
+        if ($this->user && $this->user->baseUser) {
+            return $this->user->baseUser->name . ' ' . $this->user->baseUser->surname;
+        } else {
+            return 'User data not available';
+        }
+    }
+
+    public function getUserEmailAttribute()
+    {
+        if ($this->user && $this->user->baseUser) {
+            return $this->user->baseUser->email;
+        } else {
+            return 'User data not available';
+        }
+    }
 
 }

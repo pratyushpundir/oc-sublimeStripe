@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('sublimearts/sublimestripe/payments') ?>">Payments</a></li>
+        <li><a href="<?= Backend::url('sublimearts/sublimestripe/singlecharges') ?>">Single Charges</a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -18,22 +18,30 @@
                 <button
                     type="submit"
                     data-request="onSave"
+                    data-request-data="redirect:0"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Creating Payment..."
+                    data-load-indicator="Saving SingleCharge..."
                     class="btn btn-primary">
-                    Create
+                    <u>S</u>ave
                 </button>
                 <button
                     type="button"
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Creating Payment..."
+                    data-load-indicator="Saving SingleCharge..."
                     class="btn btn-default">
-                    Create and Close
+                    Save and Close
+                </button>
+                <button
+                    type="button"
+                    class="oc-icon-trash-o btn-icon danger pull-right"
+                    data-request="onDelete"
+                    data-load-indicator="Deleting SingleCharge..."
+                    data-request-confirm="Delete this singlecharge?">
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('sublimearts/sublimestripe/payments') ?>">Cancel</a>
+                    or <a href="<?= Backend::url('sublimearts/sublimestripe/singlecharges') ?>">Cancel</a>
                 </span>
             </div>
         </div>
@@ -43,6 +51,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('sublimearts/sublimestripe/payments') ?>" class="btn btn-default">Return to payments list</a></p>
+    <p><a href="<?= Backend::url('sublimearts/sublimestripe/singlecharges') ?>" class="btn btn-default">Return to single charges list</a></p>
 
 <?php endif ?>

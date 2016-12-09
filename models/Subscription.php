@@ -26,11 +26,9 @@ class Subscription extends Model
     /**
      * @var array Relations
      */
-    public $morphMany = [
-        'payments' => [
-            'SublimeArts\SublimeStripe\Models\Payment',
-            'name' => 'billable'
+    public $hasMany = [
+        'singleCharges' => [
+            'SublimeArts\SublimeStripe\Models\SingleCharge'
         ]
     ];
-    
 }

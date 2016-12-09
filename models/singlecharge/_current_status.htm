@@ -1,0 +1,14 @@
+<label class="custom-switch">
+    <input type="checkbox" 
+        disabled="disabled"
+        onclick="false"
+        <?php if ($record->amount_in_cents) : ?>
+        checked="checked" 
+        <?php endif; ?>
+    />
+    <span>
+        <span>Yes</span>
+        <span>No</span>
+    </span>
+    <a class="slide-button"></a>
+</label>

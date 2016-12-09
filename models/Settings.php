@@ -31,6 +31,7 @@ class Settings extends Model
     {
         $this->test_mode = true;
         $this->user_model = 'RainLab\User\Models\User';
+        $this->product_model = 'SublimeArts\DemoShop\Models\Product';
         $this->id_attribute = 'id';
         $this->name_attribute = 'name';
         $this->description_attribute = 'description';

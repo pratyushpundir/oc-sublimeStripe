@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/sublimearts/sublimestripe/models/user/columns.yaml
+list: $/sublimearts/sublimestripe/models/singlecharge/columns.yaml
 
 # Model Class name
-modelClass: SublimeArts\SublimeStripe\Models\User
+modelClass: SublimeArts\SublimeStripe\Models\SingleCharge
 
 # List Title
-title: Manage Users
+title: Manage Single Charges
 
 # Link URL for each record
-recordUrl: sublimearts/sublimestripe/users/update/:id
+recordUrl: sublimearts/sublimestripe/singlecharges/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

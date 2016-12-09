@@ -97,10 +97,6 @@ class Plugin extends PluginBase
 
         Event::listen('backend.menu.extendItems', function($manager) {
 
-            if (Settings::get('hide_rainlab_user_backend_menu')) {
-                
-            }
-
             $manager->removeMainMenuItem('RainLab.User', 'user');
             $manager->addMainMenuItems('RainLab.User', [
                 'user' => [
@@ -118,12 +114,18 @@ class Plugin extends PluginBase
                     'url' => Backend::url('rainlab/user/users'),
                     'permissions' => ['sublimearts.sublimestripe.*'],
                 ],
-                'payments' => [
-                    'label' => 'Payments',
+                'singlecharges' => [
+                    'label' => 'Single Charges',
                     'icon' => 'icon-cc-stripe',
-                    'url'  => Backend::url('sublimearts/sublimestripe/payments'),
+                    'url' => Backend::url('sublimearts/sublimestripe/singlecharges'),
                     'permissions' => ['sublimearts.sublimestripe.*'],
-                ]
+                ],
+                'subscriptions' => [
+                    'label' => 'Subscriptions',
+                    'icon' => 'icon-repeat',
+                    'url' => Backend::url('sublimearts/sublimestripe/subscriptions'),
+                    'permissions' => ['sublimearts.sublimestripe.*'],
+                ],
             ]);
 
         });
@@ -212,13 +214,13 @@ class Plugin extends PluginBase
                     'users' => [
                         'label'       => 'Users',
                         'icon'        => 'icon-users',
-                        'url'         => Backend::url('sublimearts/sublimestripe/users'),
+                        'url'         => Backend::url('rainlab/user/users'),
                         'permissions' => ['sublimearts.sublimestripe.manage_sublime_stripe']
                     ],
-                    'payments' => [
+                    'singlecharges' => [
                         'label'       => 'Payments',
                         'icon'        => 'icon-cc-stripe',
-                        'url'         => Backend::url('sublimearts/sublimestripe/payments'),
+                        'url'         => Backend::url('sublimearts/sublimestripe/singlecharges'),
                         'permissions' => ['sublimearts.sublimestripe.manage_sublime_stripe']
                     ]
                 ]

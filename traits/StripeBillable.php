@@ -1,9 +1,7 @@
 <?php namespace SublimeArts\SublimeStripe\Traits;
 
-use SublimeArts\SublimeStripe\Models\Subscription;
-use SublimeArts\SublimeStripe\Models\SingleCharge;
-use SublimeArts\SublimeStripe\Models\Payment;
 use SublimeArts\SublimeStripe\Models\Settings;
+use SublimeArts\SublimeStripe\Models\SingleCharge;
 use Stripe\Customer;
 use Stripe\Charge;
 use Carbon\Carbon;
@@ -52,29 +50,26 @@ trait StripeBillable
      */
     public function addSingleCharge($product, $stripeToken)
     {
-        $customer = Customer::create([
+        $stripeCustomer = Customer::create([
             'email' => $this->baseUser->email,
             'source' => $stripeToken
         ]);
 
-        Charge::create([
-            'customer' => $customer->id,
+        $stripeCharge = Charge::create([
+            'customer' => $stripeCustomer->id,
             'amount' => $product->{Settings::get('amount_attribute')},
             'currency' => 'usd'
         ]);
 
-        $this->activate($customer->id);
-
-        /** TODO: Make the below code work with webhooks from Stripe */
-        $charge = SingleCharge::create();
-        $payment = Payment::create([
-            'amount_in_cents' => $product->{Settings::get('amount_attribute')},
-            'product_name' => $product->{Settings::get('name_attribute')}
-        ]);
-        $charge->payment = $payment;
-        $charge->product = $product;
+        $this->activate($stripeCustomer->id);
         
-        $this->singleCharges()->add($charge);
+        $localCharge = SingleCharge::create([
+            'stripe_charge_id' => $stripeCharge->id
+        ]);
+
+        $localCharge->product = $product;
+
+        $this->singleCharges()->add($localCharge);
     }
 
 }

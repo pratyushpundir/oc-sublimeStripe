@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/sublimearts/sublimestripe/models/payment/columns.yaml
+list: $/sublimearts/sublimestripe/models/subscription/columns.yaml
 
 # Model Class name
-modelClass: SublimeArts\SublimeStripe\Models\Payment
+modelClass: SublimeArts\SublimeStripe\Models\Subscription
 
 # List Title
-title: Manage Payments
+title: Manage Subscriptions
 
 # Link URL for each record
-recordUrl: sublimearts/sublimestripe/payments/update/:id
+recordUrl: sublimearts/sublimestripe/subscriptions/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

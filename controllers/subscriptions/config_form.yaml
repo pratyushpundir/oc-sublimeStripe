@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Subscription
+
+# Model Form Field configuration
+form: $/sublimearts/sublimestripe/models/subscription/fields.yaml
+
+# Model Class name
+modelClass: SublimeArts\SublimeStripe\Models\Subscription
+
+# Default redirect location
+defaultRedirect: sublimearts/sublimestripe/subscriptions
+
+# Create page
+create:
+    title: Create Subscription
+    redirect: sublimearts/sublimestripe/subscriptions/update/:id
+    redirectClose: sublimearts/sublimestripe/subscriptions
+
+# Update page
+update:
+    title: Edit Subscription
+    redirect: sublimearts/sublimestripe/subscriptions
+    redirectClose: sublimearts/sublimestripe/subscriptions
+
+# Preview page
+preview:
+    title: Preview Subscription

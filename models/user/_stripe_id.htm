@@ -1,5 +1,5 @@
 <?php
-    $value = $record->user->stripe_id;
+    $value = ($record->user) ? $record->user->stripe_id : 'Not Available';
 ?>
 
 <?= $value ?>

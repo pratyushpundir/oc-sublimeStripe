@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Single Charge
+
+# Model Form Field configuration
+form: $/sublimearts/sublimestripe/models/singlecharge/fields.yaml
+
+# Model Class name
+modelClass: SublimeArts\SublimeStripe\Models\SingleCharge
+
+# Default redirect location
+defaultRedirect: sublimearts/sublimestripe/singlecharges
+
+# Create page
+create:
+    title: Create Single Charge
+    redirect: sublimearts/sublimestripe/singlecharges/update/:id
+    redirectClose: sublimearts/sublimestripe/singlecharges
+
+# Update page
+update:
+    title: Edit Single Charge
+    redirect: sublimearts/sublimestripe/singlecharges
+    redirectClose: sublimearts/sublimestripe/singlecharges
+
+# Preview page
+preview:
+    title: Preview Single Charge

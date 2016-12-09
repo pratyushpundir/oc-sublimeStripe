@@ -4,9 +4,9 @@ use BackendMenu;
 use Backend\Classes\Controller;
 
 /**
- * Payments Back-end Controller
+ * Subscriptions Back-end Controller
  */
-class Payments extends Controller
+class Subscriptions extends Controller
 {
     public $implement = [
         'Backend.Behaviors.FormController',
@@ -19,6 +19,7 @@ class Payments extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('RainLab.User', 'user', 'payments');
+
+        BackendMenu::setContext('RainLab.User', 'user', 'subscriptions');
     }
 }

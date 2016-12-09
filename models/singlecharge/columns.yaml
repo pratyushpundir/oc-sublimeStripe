@@ -1,8 +1,45 @@
-# ===================================
-#  List Column Definitions
-# ===================================
-
 columns:
-    id:
-        label: ID
+    user_name:
+        label: User Name
         searchable: true
+        sortable: false
+
+    user_email:
+        label: User Email
+        searchable: true
+        sortable: false
+
+    product_name:
+        label: Product Name
+        searchable: true
+        sortable: false
+
+    amount_in_cents:
+        label: Amount Paid
+        select: concat('$', amount_in_cents / 100)
+        default: Not Available
+        searchable: true
+        sortable: true
+
+    stripe_charge_id:
+        label: Stripe Charge ID
+        searchable: true
+        sortable: true
+        default: Not Available
+        clickable: false
+
+    stripe_invoice:
+        label: 'Stripe Invoice #'
+        searchable: true
+        sortable: true
+        default: Not Available
+        clickable: false
+
+    created_at:
+        label: Paid On
+        type: timetense
+
+    current_status:
+        label: Payment Received
+        type: partial
+        path: 'plugins/sublimearts/sublimestripe/models/singlecharge/_current_status.htm'

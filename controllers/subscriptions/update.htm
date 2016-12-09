@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('sublimearts/sublimestripe/payments') ?>">Payments</a></li>
+        <li><a href="<?= Backend::url('sublimearts/sublimestripe/subscriptions') ?>">Subscriptions</a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -20,7 +20,7 @@
                     data-request="onSave"
                     data-request-data="redirect:0"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Saving Payment..."
+                    data-load-indicator="Saving Subscription..."
                     class="btn btn-primary">
                     <u>S</u>ave
                 </button>
@@ -29,7 +29,7 @@
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Saving Payment..."
+                    data-load-indicator="Saving Subscription..."
                     class="btn btn-default">
                     Save and Close
                 </button>
@@ -37,11 +37,11 @@
                     type="button"
                     class="oc-icon-trash-o btn-icon danger pull-right"
                     data-request="onDelete"
-                    data-load-indicator="Deleting Payment..."
-                    data-request-confirm="Delete this payment?">
+                    data-load-indicator="Deleting Subscription..."
+                    data-request-confirm="Delete this subscription?">
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('sublimearts/sublimestripe/payments') ?>">Cancel</a>
+                    or <a href="<?= Backend::url('sublimearts/sublimestripe/subscriptions') ?>">Cancel</a>
                 </span>
             </div>
         </div>
@@ -51,6 +51,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('sublimearts/sublimestripe/payments') ?>" class="btn btn-default">Return to payments list</a></p>
+    <p><a href="<?= Backend::url('sublimearts/sublimestripe/subscriptions') ?>" class="btn btn-default">Return to subscriptions list</a></p>
 
 <?php endif ?>
