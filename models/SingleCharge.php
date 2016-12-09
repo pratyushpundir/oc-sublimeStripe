@@ -24,8 +24,6 @@ class SingleCharge extends Model
      */
     protected $fillable = [];
 
-    // protected $productModelClass = Settings::productModelClass();
-
     /**
      * @var array Relations
      */
@@ -37,6 +35,7 @@ class SingleCharge extends Model
             'SublimeArts\DemoShop\Models\Product'
         ]
     ];
+    
     public $morphOne = [
         'payment' => [
             'SublimeArts\SublimeStripe\Models\Payment',

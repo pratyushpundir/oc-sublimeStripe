@@ -1,9 +1,12 @@
 <?php
     if ($billable = $record->billable) {
-        $user = $billable->user->baseUser;
-    }
-
-    $value = $user->name
+        if ($billable->user && $billable->user->baseUser) {
+            $user = $billable->user->baseUser;
+            $value = $user->name;
+        } else {
+            $value = 'User Deleted';
+        }
+    } 
 ?>
 
 <?= $value ?>
