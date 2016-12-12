@@ -77,10 +77,12 @@ trait StripeBillable
             'currency' => 'usd'
         ]);
 
+        /** Local Stuff */
         $this->activate($stripeCustomer->id);
         
         $localCharge = SingleCharge::create([
-            'stripe_charge_id' => $stripeCharge->id
+            'stripe_charge_id' => $stripeCharge->id,
+            'amount_in_cents' => $stripeCharge->amount,
         ]);
 
         $localCharge->product = $product;

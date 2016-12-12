@@ -1,21 +1,16 @@
 <?php if ($record->user) : ?>
-    <?php if ( $record->user->stripe_active ) : ?>
-        <label class="custom-switch">
-            <input type="checkbox" disabled="disabled" checked="checked" onclick="false"/>
-            <span>
-                <span>Yes</span>
-                <span>No</span>
-            </span>
-            <a class="slide-button"></a>
-        </label>
-    <?php else : ?>
-        <label class="custom-switch">
-            <input type="checkbox" disabled="disabled" onclick="false"/>
-            <span>
-                <span>Yes</span>
-                <span>No</span>
-            </span>
-            <a class="slide-button"></a>
-        </label>
-    <?php endif ?>
+    <label class="custom-switch">
+    <input type="checkbox" 
+        disabled="disabled"
+        onclick="false"
+        <?php if ($record->user->stripe_active) : ?>
+        checked="checked" 
+        <?php endif; ?>
+    />
+    <span>
+        <span>Yes</span>
+        <span>No</span>
+    </span>
+    <a class="slide-button"></a>
+</label>
 <?php endif ?>
