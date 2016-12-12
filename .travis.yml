@@ -1,10 +1,23 @@
 language: php
 
 php:
-  - 5.4
-  - 5.5
+  - 5.5.9
   - 5.6
   - 7.0
   - hhvm
+
+matrix:
+  allow_failures:
+    - php: 7.0
+    - php: hhvm
+
+before_script:
+  - git clone https://github.com/octobercms/october.git
+  - mkdir -p ./october/plugins/sublimearts/sublimestripe
+  - mv !(october) october/plugins/sublimearts/sublimestripe
+  - cd october
+  - composer install
+  - cd plugins/sublimearts/sublimestripe
+  - composer install
 
 script: phpunit
