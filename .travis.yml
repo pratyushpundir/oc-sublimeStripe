@@ -13,11 +13,10 @@ matrix:
 
 before_script:
   - git clone https://github.com/octobercms/october.git
-  - cd october
-  - composer install
-  - php artisan plugin:install RainLab.User
   - mkdir -p ./plugins/sublimearts/sublimestripe
   - mv !(october) ./plugins/sublimearts/sublimestripe
+  - cd october
+  - composer install
   - cd plugins/sublimearts/sublimestripe
   - composer install
 
