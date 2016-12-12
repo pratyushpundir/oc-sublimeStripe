@@ -25,5 +25,6 @@ before_script:
   - mv user-plugin user
   - cd user
   - composer install
+  - cd ../../sublimearts/sublimestripe
 
 script: phpunit
