@@ -100,7 +100,7 @@ class Plugin extends PluginBase
             $manager->removeMainMenuItem('RainLab.User', 'user');
             $manager->addMainMenuItems('RainLab.User', [
                 'user' => [
-                    'label' => 'Users & Payments',
+                    'label' => (Settings::get('backend_menu_item_title')) ? Settings::get('backend_menu_item_title') : 'Users & Payments',
                     'icon' => 'icon-cc-stripe',
                     'iconSvg' => 'plugins/sublimearts/sublimestripe/assets/images/stripe-icon.svg',
                     'url' => Backend::url('rainlab/user/users'),

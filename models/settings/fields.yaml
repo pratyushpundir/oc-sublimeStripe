@@ -18,13 +18,6 @@ tabs:
             required: true
             tab: Stripe API
 
-        test_mode:
-            label: Test Mode
-            span: left
-            type: switch
-            comment: Enable TEST mode? This is just so the assets are minified and concatenated. This setting has nothing to do with Stripe itself. The Stripe keys you use above is what dictate whether you are 'Live' or in 'Test' mode.
-            tab: Stripe API
-
         product_model:
             label: Product Model
             span: left
@@ -83,6 +76,13 @@ tabs:
             tab: Site Integration
             comment: Selector for the element that fully CONTAINS your product list. Ex. - '#product-list'
 
+        backend_menu_item_title:
+            label: Backend Menu Item Title
+            span: right
+            required: true
+            tab: Site Integration
+            comment: What should the backend menu item be labeled as. Ex. - 'Users & Payments'
+
         post_uri:
             label: Post URI
             span: left
@@ -117,8 +117,9 @@ tabs:
             tab: Styling
             comment: Space separated list of class names to be applied to the checkout button. Defaults to 'btn btn-primary'
 
-        # hide_rainlab_user_backend_menu:
-        #     label: Hide RainLab.User Backend Menu Item
-        #     span: left
-        #     type: switch
-        #     tab: Misc
+        minify_assets:
+            label: Minify Plugin Assets?
+            span: left
+            type: switch
+            comment: Set this to 'OFF' so you can see useful JS console messages.
+            tab: Miscellaneous

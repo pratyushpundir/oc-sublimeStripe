@@ -18,7 +18,7 @@ class StripeJs extends ComponentBase
     {
         Settings::checkRequired();
 
-        if ( ! Settings::get('test_mode')) {
+        if ( ! Settings::get('minify_assets')) {
             $this->addJs('/plugins/sublimearts/sublimestripe/assets/dist/js/bundle.js');
         } else {
             $this->addJs('/plugins/sublimearts/sublimestripe/assets/src/js/vendor/vue-2.1.3.js');

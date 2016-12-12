@@ -21,14 +21,14 @@ class Settings extends Model
         "container_html_element" => "'Container element'",
         "post_uri" => "'POST URI'",
         "redirect_uri" => "'Redirect URI'",
-        "button_classes" => "'Button Classes'"
+        "button_classes" => "'Button Classes'",
     ];
 
     public $implement = ['System.Behaviors.SettingsModel'];
 
     public function initSettingsData()
     {
-        $this->test_mode = true;
+        $this->minify_assets = false;
         $this->user_model = 'RainLab\User\Models\User';
         $this->id_attribute = 'id';
         $this->name_attribute = 'name';
@@ -37,8 +37,7 @@ class Settings extends Model
         $this->post_uri = 'stripe/checkout';
         $this->redirect_uri = 'stripe/checkout/success';
         $this->button_classes = 'btn btn-primary';
-
-        env('SUBLIME_STRIPE_POST_URI', $this->post_uri);
+        $this->backend_menu_item_title = 'Users & Payments';
     }
 
     public $settingsCode = 'sublimearts_sublime_stripe_settings';
@@ -59,7 +58,7 @@ class Settings extends Model
     {
         foreach (static::REQUIRED as $attribute => $attributeDescription) {
             if ( ! static::get($attribute) ) {
-                throw new Exception("{$attributeDescription} not set in SublimeStripe backend settings!", 1);
+                throw new Exception("{$attributeDescription} not set in SublimeArts.SublimeStripe backend settings!", 1);
             }
         }
     }
