@@ -1,0 +1,54 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    user:
+        label: User
+        # modelClass: SublimeArts\SublimeStripe\Models\User
+        modelClass: RainLab\User\Models\User
+        conditions: user_id in (:filtered)
+        nameFrom: name
+
+    product:
+        label: Product
+        modelClass: SublimeArts\DemoShop\Models\Product
+        conditions: product_id in (:filtered)
+        nameFrom: title
+
+    created_at:
+        label: Payment Date
+        type: daterange
+        conditions: created_at >= ':after' AND created_at <= ':before'
+
+    # status:
+    #     label: Status
+    #     type: group
+    #     conditions: status in (:filtered)
+    #     options:
+    #         pending: Pending
+    #         active: Active
+    #         closed: Closed
+
+    # published:
+    #     label: Hide published
+    #     type: checkbox
+    #     conditions: is_published <> true
+
+    # approved:
+    #     label: Approved
+    #     type: switch
+    #     conditions:
+    #         - is_approved <> true
+    #         - is_approved = true
+
+    # created_at:
+    #     label: Date
+    #     type: date
+    #     conditions: created_at >= ':filtered'
+
+    # published_at:
+    #     label: Date
+    #     type: daterange
+    #     conditions: created_at >= ':after' AND created_at <= ':before'

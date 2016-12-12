@@ -37,7 +37,8 @@ class Settings extends Model
         $this->post_uri = 'stripe/checkout';
         $this->redirect_uri = 'stripe/checkout/success';
         $this->button_classes = 'btn btn-primary';
-        // $this->hide_rainlab_user_backend_menu = true;
+
+        env('SUBLIME_STRIPE_POST_URI', $this->post_uri);
     }
 
     public $settingsCode = 'sublimearts_sublime_stripe_settings';
