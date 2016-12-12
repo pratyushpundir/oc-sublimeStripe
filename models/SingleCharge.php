@@ -43,6 +43,10 @@ class SingleCharge extends Model
         ]
     ];
 
+    /**
+     * Get the related Product's name
+     * @return String Related Product's Name
+     */
     public function getProductNameAttribute()
     {
         if ($this->product) {
@@ -52,6 +56,10 @@ class SingleCharge extends Model
         }
     }
 
+    /**
+     * * Get the related User's name
+     * @return String Related User's Name
+     */
     public function getUserNameAttribute()
     {
         if ($this->user && $this->user->baseUser) {
@@ -61,6 +69,10 @@ class SingleCharge extends Model
         }
     }
 
+    /**
+     * Get the related User's email
+     * @return String Related User's email
+     */
     public function getUserEmailAttribute()
     {
         if ($this->user && $this->user->baseUser) {

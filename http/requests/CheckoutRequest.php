@@ -26,7 +26,7 @@ class CheckoutRequest extends FormRequest
 
     /**
      * Handle the checkout data and create needed charges
-     * @return [type] [description]
+     * @return
      */
     public function submit()
     {

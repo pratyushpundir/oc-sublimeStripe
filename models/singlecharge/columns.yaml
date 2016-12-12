@@ -40,6 +40,6 @@ columns:
         type: timetense
 
     current_status:
-        label: Payment Received
+        label: Stripe Confirmation
         type: partial
         path: 'plugins/sublimearts/sublimestripe/models/singlecharge/_current_status.htm'

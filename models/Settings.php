@@ -21,8 +21,7 @@ class Settings extends Model
         "container_html_element" => "'Container element'",
         "post_uri" => "'POST URI'",
         "redirect_uri" => "'Redirect URI'",
-        "button_classes" => "'Button Classes'",
-        // "hide_rainlab_user_backend_menu" => "'Hide RainLab.User Backend Menu Item'",
+        "button_classes" => "'Button Classes'"
     ];
 
     public $implement = ['System.Behaviors.SettingsModel'];
@@ -31,7 +30,6 @@ class Settings extends Model
     {
         $this->test_mode = true;
         $this->user_model = 'RainLab\User\Models\User';
-        $this->product_model = 'SublimeArts\DemoShop\Models\Product';
         $this->id_attribute = 'id';
         $this->name_attribute = 'name';
         $this->description_attribute = 'description';
@@ -53,7 +51,7 @@ class Settings extends Model
     ];
 
     /**
-     * Checks if the Settings defined in the REQUIRED const have been set.
+     * Throws an Exception if the Settings defined in the REQUIRED const have not been set.
      * @return 
      */
     public static function checkRequired()
@@ -61,13 +59,13 @@ class Settings extends Model
         foreach (static::REQUIRED as $attribute => $attributeDescription) {
             if ( ! static::get($attribute) ) {
                 throw new Exception("{$attributeDescription} not set in SublimeStripe backend settings!", 1);
-                // return Response::make("{$attributeDescription} not set in SublimeStripe backend settings!", 500);
             }
         }
     }
 
     /**
-     * Returns a fully-qualified and trimmed classname for the target Model Class.
+     * Returns a fully-qualified and trimmed classname for the product Model Class
+     * set in Backend Settings.
      * @return string
      */
     public static function productModelClass()
@@ -76,7 +74,8 @@ class Settings extends Model
     }
 
     /**
-     * Returns a fully-qualified and trimmed classname for the User Class.
+     * Returns a fully-qualified and trimmed classname for the user Model Class
+     * set in Backend Settings.
      * @return string
      */
     public static function userModelClass()

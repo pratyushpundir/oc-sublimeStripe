@@ -13,11 +13,19 @@ use Log, Exception;
  */
 trait StripeBillable
 {
+    /**
+     * Checks if the given user is active on Stripe
+     * @return boolean
+     */
     public function isActive()
     {
         return (!! $this->stripe_active);
     }
 
+    /**
+     * Sets the Stripe ID and Stripe Active properties on the User instance
+     * @param  String $stripeId Stripe ID for the user
+     */
     public function activate($stripeId = null)
     {
         $this->update([
@@ -28,16 +36,23 @@ trait StripeBillable
         Log::info($this->baseUser->email . " was activated!");
     }
 
+    /**
+     * Sets the Stripe Active property to false for the given User.
+     */
     public function deactivate()
     {
         $this->update([
-            'stripe_active' => false,
-            'plan_ends_at' => Carbon::now(),
+            'stripe_active' => false
         ]);
 
         Log::info($this->baseUser->email . " was deactivated!");
     }
 
+    /**
+     * Find a User by their Stripe ID
+     * @param  String $stripeId The Stripe ID
+     * @return User             The User with the given Stripe ID
+     */
     public static function byStripeId($stripeId)
     {
         return static::where('stripe_id', $stripeId)->firstOrFail();
@@ -50,6 +65,7 @@ trait StripeBillable
      */
     public function addSingleCharge($product, $stripeToken)
     {
+        /** Stripe Stuff */
         $stripeCustomer = Customer::create([
             'email' => $this->baseUser->email,
             'source' => $stripeToken

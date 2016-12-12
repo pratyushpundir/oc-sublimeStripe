@@ -24,7 +24,8 @@ class Subscription extends Model
     protected $fillable = [];
 
     /**
-     * @var array Relations
+     * A subscription is essentially a collection SingleCharges
+     * @var array
      */
     public $hasMany = [
         'singleCharges' => [

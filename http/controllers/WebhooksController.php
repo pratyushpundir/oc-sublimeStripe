@@ -8,7 +8,8 @@ use Log;
 class WebhooksController extends Controller {
 
     /**
-     * Handle the webhook event
+     * Route the handling of the incoming webhook event to the required method
+     * @return Http\Response
      */
     public function handle()
     {
@@ -26,7 +27,8 @@ class WebhooksController extends Controller {
     }
 
     /**
-     * Handle a Subscription Deletion
+     * Handle a Subscription deleted at Stripe's end
+     * @param array $payload Payload received with the Stripe event
      */
     public function whenCustomerSubscriptionDeleted($payload)
     {
@@ -37,6 +39,7 @@ class WebhooksController extends Controller {
 
     /**
      * Record a successful stripe payment
+     * @param array $payload Payload received with the Stripe event
      */
     public function whenChargeSucceeded($payload)
     {
@@ -48,7 +51,9 @@ class WebhooksController extends Controller {
     }
 
     /**
-     * Get a Member using Stripe Payload
+     * Get a User using Stripe Payload
+     * @param array $payload Payload received with the Stripe event
+     * @return RainLab\User\Models\User
      */
     protected function getUser($payload)
     {
@@ -59,6 +64,8 @@ class WebhooksController extends Controller {
 
     /**
      * Convert a Stripe event to a method name
+     * @param  String $event Event name received from Stripe
+     * @return String        Handler method name that should handle this event
      */
     public function eventToMethod($event)
     {
