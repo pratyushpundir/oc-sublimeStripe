@@ -19,5 +19,11 @@ before_script:
   - composer install
   - cd plugins/sublimearts/sublimestripe
   - composer install
+  - mkdir -p ../../rainlab/user
+  - cd ../../rainlab
+  - git clone https://github.com/rainlab/user-plugin
+  - mv -R user-plugin user
+  - cd user
+  - composer install
 
 script: phpunit
