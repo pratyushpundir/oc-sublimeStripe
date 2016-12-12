@@ -14,6 +14,10 @@ class StripeJs extends ComponentBase
         ];
     }
 
+    /**
+     * Passes the required data to a global (namespaced) JavaScript object so
+     * that it's accessible by JS everywhere it is needed.
+     */
     public function onRun()
     {
         Settings::checkRequired();

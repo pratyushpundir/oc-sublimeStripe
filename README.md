@@ -3,11 +3,13 @@ A simple plugin that provides a checkout button and simple backend integration w
 
 ### Some Screenshots
 ![Checkout Buttons in a Product Listing](/assets/images/01-frontend-checkout-button.png?raw=true "Checkout Buttons in a Product Listing")
-![Stripe Checkout Form](/assets/images/02-frontend-checkout-form-open.png?raw=true "Checkout Buttons in a Product Listing")
-![Backend Settings - API Keys](/assets/images/03-backend-api-keys.png?raw=true "Checkout Buttons in a Product Listing")
-![Backend Settings - Model Mapping](/assets/images/04-backend-model-mappings.png?raw=true "Backend Settings - Model Mapping")
-![Backend Settings - Site Integration](/assets/images/05-backend-site-integration.png?raw=true "Backend Settings - Site Integration")
-![Backend Settings - Styling](/assets/images/06-backend-styling.png?raw=true "Backend Settings - Styling")
+![Stripe Checkout Form](/assets/images/02-frontend-checkout-form-open.png?raw=true "Stripe Checkout Form")
+![Backend Page - Users](/assets/images/03-backend-page-users.png?raw=true "The modified Users page with Stripe related columns")
+![Backend Page - Single Charges](/assets/images/04-backend-page-single-charges.png?raw=true "Stripe individual payments")
+![Backend Settings - API Keys](/assets/images/05-backend-settings-api-keys.png?raw=true "Backend Settings - Stripe API Keys")
+![Backend Settings - Model Mapping](/assets/images/06-backend-settings-model-mappings.png?raw=true "Backend Settings - Model Mapping")
+![Backend Settings - Site Integration](/assets/images/07-backend-settings-site-integration.png?raw=true "Backend Settings - Site Integration")
+![Backend Settings - Styling](/assets/images/08-backend-settings-styling.png?raw=true "Backend Settings - Styling")
 
 
 ### Setup part 1 - Stripe.com
