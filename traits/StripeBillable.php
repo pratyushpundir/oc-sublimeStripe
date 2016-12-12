@@ -19,7 +19,7 @@ trait StripeBillable
      */
     public function isActive()
     {
-        return (!! $this->stripe_active);
+        return (!! $this->stripe_active && $this->stripe_id != null);
     }
 
     /**
