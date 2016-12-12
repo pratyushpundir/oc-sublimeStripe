@@ -4,12 +4,19 @@
 
 scopes:
 
-    user:
-        label: User
+    user_name:
+        label: User Name
         # modelClass: SublimeArts\SublimeStripe\Models\User
         modelClass: RainLab\User\Models\User
         conditions: user_id in (:filtered)
         nameFrom: name
+    
+    user_email:
+        label: User Email
+        # modelClass: SublimeArts\SublimeStripe\Models\User
+        modelClass: RainLab\User\Models\User
+        conditions: user_id in (:filtered)
+        nameFrom: email
 
     product:
         label: Product

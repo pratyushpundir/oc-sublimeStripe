@@ -151,8 +151,14 @@ class Plugin extends PluginBase
                     'path' => '$/sublimearts/sublimestripe/models/user/_stripe_id.htm',
                     'clickable' => false
                 ],
+                'activated' => [
+                    'label' => 'Account Active?',
+                    'type' => 'partial',
+                    'path' => '$/sublimearts/sublimestripe/models/user/_activated.htm',
+                    'clickable' => false
+                ],
                 'stripe_active' => [
-                    'label' => 'Currently Active?',
+                    'label' => 'Stripe Active?',
                     'type' => 'partial',
                     'path' => '$/sublimearts/sublimestripe/models/user/_stripe_active.htm',
                     'clickable' => false
