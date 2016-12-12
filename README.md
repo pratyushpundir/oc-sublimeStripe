@@ -2,6 +2,7 @@
 A simple plugin that provides a checkout button and simple backend integration with the the awesome [Stripe](https://stripe.com/) service for payment handling on any [OctoberCMS](https://octobercms.com/) site.
 
 Develop [![Build Status](https://travis-ci.org/pratyushpundir/oc-sublimeStripe.svg?branch=develop)](https://travis-ci.org/pratyushpundir/oc-sublimeStripe)
+
 Master [![Build Status](https://travis-ci.org/pratyushpundir/oc-sublimeStripe.svg?branch=master)](https://travis-ci.org/pratyushpundir/oc-sublimeStripe)
 
 ### Some Screenshots
