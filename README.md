@@ -1,4 +1,4 @@
-### Sublime Stripe - WORK IN PROGRESS! USE AT YOUR OWN RISK! [![Build Status](https://travis-ci.org/pratyushpundir/oc-sublimeStripe.svg?branch=master)](https://travis-ci.org/pratyushpundir/oc-sublimeStripe)
+### Sublime Stripe [![Build Status](https://travis-ci.org/pratyushpundir/oc-sublimeStripe.svg?branch=master)](https://travis-ci.org/pratyushpundir/oc-sublimeStripe)
 A simple plugin that provides a checkout button and simple backend integration with the the awesome [Stripe](https://stripe.com/) service for payment handling on any [OctoberCMS](https://octobercms.com/) site.
 
 ### Some Screenshots
