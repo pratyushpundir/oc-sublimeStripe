@@ -16,8 +16,8 @@ before_script:
   - mkdir -p ./october/plugins/sublimearts/sublimestripe
   - mv !(october) october/plugins/sublimearts/sublimestripe
   - cd october
-  - php artisan plugin:install RainLab.User
   - composer install
+  - php artisan plugin:install RainLab.User
   - cd plugins/sublimearts/sublimestripe
   - composer install
 
