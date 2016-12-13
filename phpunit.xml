@@ -11,8 +11,11 @@
          syntaxCheck="false"
 >
     <testsuites>
-        <testsuite name="SublimeStripe Unit Test Suite">
-            <directory>./tests</directory>
+        <testsuite name="SublimeStripe Unit Tests">
+            <directory>./tests/unit</directory>
+        </testsuite>
+        <testsuite name="SublimeStripe Functional Tests">
+            <directory>./tests/functional</directory>
         </testsuite>
     </testsuites>
     <php>

@@ -1,4 +1,4 @@
-<?php namespace SublimeArts\SublimeStripe\Tests\Traits;
+<?php namespace SublimeArts\SublimeStripe\Tests\Unit\Traits;
 
 require "vendor/autoload.php";
 
@@ -55,8 +55,8 @@ class StripeBillableTest extends PluginTestCase
 
     public function tearDown()
     {
-        $this->user->forceDelete();
-        $this->baseUser->forceDelete();
+        BaseUser::truncate();
+        User::truncate();
         $this->product = null;
         $this->stripeToken = null;
         parent::tearDown();

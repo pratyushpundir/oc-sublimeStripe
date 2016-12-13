@@ -1,4 +1,4 @@
-<?php namespace SublimeArts\SublimeStripe\Tests\Http\Controllers;
+<?php namespace SublimeArts\SublimeStripe\Tests\Unit\Http\Controllers;
 
 use PluginTestCase;
 use SublimeArts\SublimeStripe\Http\Controllers\WebhooksController;
