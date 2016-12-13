@@ -117,11 +117,9 @@ trait StripeBillable
      */
     public function recordStripeCharge($productId, $stripeChargeId)
     {
-        $product = Settings::getProductById($productId);
-
         $localCharge = SingleCharge::create([
             'stripe_charge_id' => $stripeChargeId,
-            'product_id' => $product->id
+            'product_id' => $productId
         ]);
 
         $this->singleCharges()->add($localCharge);

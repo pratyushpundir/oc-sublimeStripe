@@ -1,15 +1,15 @@
 <?php namespace SublimeArts\SublimeStripe\Tests\Traits;
 
+require "vendor/autoload.php";
+
 use PluginTestCase;
 use SublimeArts\SublimeStripe\Traits\StripeBillable;
 use SublimeArts\SublimeStripe\Models\User;
 use SublimeArts\SublimeStripe\Models\Settings;
 use SublimeArts\SublimeStripe\Models\SingleCharge;
 use RainLab\User\Models\User as BaseUser;
-// use \Stripe\Stripe;
-// use \Stripe\Customer;
-// use \Stripe\Charge;
-// use \Stripe\Token;
+use Stripe\Stripe;
+use Stripe\Token;
 
 class StripeBillableTest extends PluginTestCase
 {
@@ -36,24 +36,21 @@ class StripeBillableTest extends PluginTestCase
         ]);
 
         /** A Dummy Product */
-        $this->product = [
-            'id' => 1,
-            'name' => 'A Fake Product',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-            'amount' => 4999,
-        ];
+        // $productModelClass = Settings::productModelClass();
+        // $id = Settings::get('id_attribute');
+        // $name = Settings::get('name_attribute');
+        // $description = Settings::get('description_attribute');
+        // $amount = Settings::get('amount_attribute');
 
-        /** A Stripe Token */
-        // Stripe::setApiKey(env('STRIPE_SECRET'));
-
-        // $this->stripeToken = Token::create([
-        //     'card' => [
-        //         'number' => '4242424242424242',
-        //         'exp_month' => 12,
-        //         'exp_year' => 2020,
-        //         'cvc' => '123'
-        //     ]
+        // $this->product = $productModelClass::create([
+        //     $id => 1,
+        //     $name => 'A Fake Product',
+        //     $description => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        //     $amount => 4999,
         // ]);
+
+        /** Setup Stripe stuff */
+        Stripe::setApiKey(env('STRIPE_SECRET'));
     }
 
     public function tearDown()
@@ -124,10 +121,16 @@ class StripeBillableTest extends PluginTestCase
     }
 
     /** @test */
-    // public function it_adds_a_single_stripe_charge()
-    // {
-    //     // $this->user->addSingleCharge($this->product, $this->stripeToken);
-    //     $this->assertTrue(class_exists('Stripe\Stripe'));
-    // }
+    public function it_records_a_stripe_charge_for_a_given_product()
+    {
+        $this->user->recordStripeCharge(1, 'fake_stripe_charge_id');
+        
+        $chargeExists = $this->user->singleCharges()
+                                   ->where('stripe_charge_id', 'fake_stripe_charge_id')
+                                   ->first();
+
+        $this->assertTrue(!! $chargeExists);
+        $this->assertEquals($chargeExists->product_id, 1);
+    }
 
 }
