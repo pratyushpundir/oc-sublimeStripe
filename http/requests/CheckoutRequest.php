@@ -31,13 +31,10 @@ class CheckoutRequest extends FormRequest
     public function submit()
     {
         Stripe::setApiKey(Settings::get('stripe_secret_key'));
-     
-        $productModel = Settings::productModelClass();
-        $product = $productModel::findOrFail($this->product['id']);
 
         $loggedUser = Auth::getUser()->user;
 
-        $loggedUser->addSingleCharge($product, $this->stripeToken);
+        $loggedUser->addSingleCharge($this->product['id'], $this->stripeToken);
     }
 
 }

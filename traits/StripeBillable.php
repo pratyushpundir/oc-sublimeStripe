@@ -60,34 +60,73 @@ trait StripeBillable
 
     /**
      * Create a Stripe customer and apply a single charge for the given product.
-     * @param Product $product    Product instance based on the class set in plugin Settings
-     * @param String $stripeToken StripeToken
+     * @param  integer $productId    Product's ID
+     * @param  String  $stripeToken  StripeToken
+     * @return SingleCharge          Local SingleCharge Instance
      */
-    public function addSingleCharge($product, $stripeToken)
+    public function addSingleCharge($productId, $stripeToken)
     {
-        /** Stripe Stuff */
+        $product = Settings::getProductById($productId);
+        $amount = $product->{Settings::get('amount_attribute')};
+        $productId = $product->{Settings::get('id_attribute')};
+        
+        /** Attempt to charge on Stripe */
+        $stripeCharge = $this->attemptStripeCharge($amount, $stripeToken);
+
+        /** Record charge locally if successfully */
+        if ($stripeCharge) {
+            $this->activate($stripeCharge['stripe_customer_id']);
+            return $this->recordStripeCharge($productId, $stripeCharge['stripe_charge_id']);
+        }
+    }
+
+    /**
+     * Attemps to create a Stripe Customer and apply a charge with the given amount 
+     * to that Customer.
+     * @param  double $amount       Amount to be charged for
+     * @param  String $stripeToken  Stripe Token for the attempt
+     * @return array                An array with the Stripe Customer and Charge IDs
+     */
+    public function attemptStripeCharge($amount, $stripeToken)
+    {
+        /** Create the Stripe Customer */
         $stripeCustomer = Customer::create([
             'email' => $this->baseUser->email,
             'source' => $stripeToken
         ]);
 
+        /** Charge the Stripe Customer */
         $stripeCharge = Charge::create([
             'customer' => $stripeCustomer->id,
-            'amount' => $product->{Settings::get('amount_attribute')},
+            'amount' => $amount,
             'currency' => 'usd'
         ]);
-
-        /** Local Stuff */
-        $this->activate($stripeCustomer->id);
         
+        return [
+            'stripe_customer_id' => $stripeCustomer->id,
+            'stripe_charge_id' => $stripeCharge->id
+        ];
+    }
+
+    /**
+     * Records a Stripe charge with the given charge ID as a SingleCharge 
+     * record in the local database.
+     * @param  integer $productId      ID of the ordered product
+     * @param  String $stripeChargeId  Stripe Charge ID
+     * @return SingleCharge            Newly recorded SingleCharge record
+     */
+    public function recordStripeCharge($productId, $stripeChargeId)
+    {
+        $product = Settings::getProductById($productId);
+
         $localCharge = SingleCharge::create([
-            'stripe_charge_id' => $stripeCharge->id,
-            'amount_in_cents' => $stripeCharge->amount,
+            'stripe_charge_id' => $stripeChargeId,
+            'product_id' => $product->id
         ]);
 
-        $localCharge->product = $product;
-
         $this->singleCharges()->add($localCharge);
+
+        return $localCharge;
     }
 
 }

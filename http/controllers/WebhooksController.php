@@ -43,11 +43,16 @@ class WebhooksController extends Controller {
      */
     public function whenChargeSucceeded($payload)
     {
-        $charge = $this->getUser($payload)->singleCharges()->where('stripe_charge_id', $payload['data']['object']['id'])->firstOrFail();
+        $stripeChargeId = $payload['data']['object']['id'];
+        
+        $charge = $this->getUser($payload)->singleCharges()->where('stripe_charge_id', $stripeChargeId)->firstOrFail();
+
         $charge->update([
             'amount_in_cents' => $payload['data']['object']['amount'],
             'stripe_invoice' => $payload['data']['object']['invoice']
         ]);
+
+        Log::info("Stripe Charge with id {$stripeChargeId} recorded in database successfully.");
     }
 
     /**

@@ -82,4 +82,14 @@ class SingleCharge extends Model
         }
     }
 
+    /**
+     * Returns a SingleCharge record with the given Stripe Charge ID
+     * @param  String $stripeChargeId The Stripe Charge ID
+     * @return SingleCharge
+     */
+    public static function byChargeId($stripeChargeId)
+    {
+        return static::where('stripe_charge_id', $stripeChargeId)->firstOrFail();
+    }
+
 }
