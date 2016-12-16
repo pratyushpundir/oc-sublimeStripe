@@ -73,7 +73,7 @@ class Settings extends Model
      */
     public static function productModelClass()
     {
-        return '\\' . trim(static::get('product_model'));
+        return static::sanitizeClassName(static::get('product_model'));
     }
 
     /**
@@ -83,11 +83,21 @@ class Settings extends Model
      */
     public static function userModelClass()
     {
-        return '\\' . trim(static::get('user_model'));
+        return static::sanitizeClassName(static::get('user_model'));
     }
 
     /**
-     * Get a Product record by it's ID
+     * Sanitize the provided class name.
+     * @param  String $className Class name to be sanitized
+     * @return String            Sanitized class name
+     */
+    protected static function sanitizeClassName($className)
+    {
+        return '\\' . trim($className, "\\");
+    }
+
+    /**
+     * Get a Product record by it's ID.
      * @param  integer $productId  ID of the product to be fetched
      * @return Product             Instance of the Product model as set in Settings
      */
