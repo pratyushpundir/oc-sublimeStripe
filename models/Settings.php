@@ -7,6 +7,8 @@ use Model, Exception;
  */
 class Settings extends Model
 {
+    public $implement = ['System.Behaviors.SettingsModel'];
+
     /**
      * Settings that are REQUIRED to be set before using the plugin
      */
@@ -23,8 +25,6 @@ class Settings extends Model
         "redirect_uri" => "'Redirect URI'",
         "button_classes" => "'Button Classes'",
     ];
-
-    public $implement = ['System.Behaviors.SettingsModel'];
 
     public function initSettingsData()
     {
@@ -51,14 +51,17 @@ class Settings extends Model
     ];
 
     /**
-     * Throws an Exception if the Settings defined in the REQUIRED const have not been set.
-     * @return 
+     * Throws an Exception if the Settings defined in the REQUIRED const have not been set
+     * or returns true if all is well
+     * @return boolean
      */
     public static function checkRequired()
     {
         foreach (static::REQUIRED as $attribute => $attributeDescription) {
-            if ( ! static::get($attribute) ) {
+            if ( ! static::get($attribute) || static::get($attribute) == '' ) {
                 throw new Exception("{$attributeDescription} not set in SublimeArts.SublimeStripe backend settings!", 1);
+            } else {
+                return true;
             }
         }
     }
