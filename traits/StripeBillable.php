@@ -68,7 +68,6 @@ trait StripeBillable
     {
         $product = Settings::getProductById($productId);
         $amount = $product->{Settings::get('amount_attribute')};
-        $productId = $product->{Settings::get('id_attribute')};
         
         /** Attempt to charge on Stripe */
         $stripeCharge = $this->attemptStripeCharge($amount, $stripeToken);
@@ -90,10 +89,7 @@ trait StripeBillable
     public function attemptStripeCharge($amount, $stripeToken)
     {
         /** Create the Stripe Customer */
-        $stripeCustomer = Customer::create([
-            'email' => $this->baseUser->email,
-            'source' => $stripeToken
-        ]);
+        $stripeCustomer = $this->createStripeCustomer($stripeToken);
 
         /** Charge the Stripe Customer */
         $stripeCharge = Charge::create([
@@ -125,6 +121,25 @@ trait StripeBillable
         $this->singleCharges()->add($localCharge);
 
         return $localCharge;
+    }
+
+    /**
+     * Create a customer on Stripe
+     * @param  String $stripeToken      The Stripe Token
+     * @return Stripe\Customer | false  Returns the Stripe customer if succesfull else retuns false.
+     */
+    public function createStripeCustomer($stripeToken) 
+    {
+        $customer = Customer::create([
+            'email' => $this->baseUser->email,
+            'source' => $stripeToken
+        ]);
+
+        if (!! $customer) {
+            return $customer;
+        } else {
+            return false;
+        }
     }
 
 }
