@@ -1,16 +1,14 @@
-<?php if ($record->is_activated) : ?>
-    <label class="custom-switch">
-    <input type="checkbox" 
-        disabled="disabled"
-        onclick="false"
-        <?php if ($record->user->stripe_active) : ?>
-        checked="checked" 
-        <?php endif; ?>
-    />
+<label class="custom-switch">
+<input type="checkbox" 
+    disabled="disabled"
+    onclick="false"
+    <?php if ($record->is_activated) : ?>
+    checked="checked" 
+    <?php endif; ?>
+/>
     <span>
         <span>Yes</span>
         <span>No</span>
     </span>
     <a class="slide-button"></a>
 </label>
-<?php endif ?>
