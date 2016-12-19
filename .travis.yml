@@ -8,15 +8,14 @@ php:
 
 matrix:
   allow_failures:
-    - php: 5.5.9
     - php: 7.0
     - php: hhvm
 
 before_script:
-  - wget https://phar.phpunit.de/phpunit.phar
-  - chmod +x phpunit.phar
-  - sudo mv phpunit.phar /usr/local/bin/phpunit
-  - phpunit --version
+  # - wget https://phar.phpunit.de/phpunit.phar
+  # - chmod +x phpunit.phar
+  # - sudo mv phpunit.phar /usr/local/bin/phpunit
+  # - phpunit --version
   - git clone https://github.com/octobercms/october.git
   - mkdir -p ./october/plugins/sublimearts/sublimestripe
   - mv !(october) october/plugins/sublimearts/sublimestripe
@@ -32,4 +31,4 @@ before_script:
   - composer install
   - cd ../../sublimearts/sublimestripe
 
-script: /usr/local/bin/phpunit
+script: phpunit

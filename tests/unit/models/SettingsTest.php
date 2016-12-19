@@ -13,10 +13,12 @@ class SettingsTest extends PluginTestCase
         parent::tearDown();
     }
 
-    /** @test */
+    /**
+     * @test
+     * @expectedException Exception
+     */
     public function it_throws_an_exception_if_required_settings_are_not_set()
     {
-        $this->expectException(Exception::class);
         Settings::checkRequired();
     }
 
