@@ -16,6 +16,7 @@ A simple plugin that provides a checkout button and simple backend integration w
 1. Create a free account on [Stripe](https://stripe.com/).
 2. Login to Stripe once you have confirmed your email address.
 3. Visit https://dashboard.stripe.com/account/apikeys and make a copy of both your Secret and Publishable keys. Make sure to use the pair relevant to what you are doing, aka, testing or working on your live server.
+4. Visit https://dashboard.stripe.com/account/webhooks and create a URI where you wish to recieve webhooks from Stripe. This is basically where Stripe would send various events for you to handle. Make a note of this URI as it will be needed later on during setting preferences for the plugin in your site's backend.
 4. Visit your own site's backend panel and keep reading.
 
 ### Setup part 2 - Your OctoberCMS website backend
