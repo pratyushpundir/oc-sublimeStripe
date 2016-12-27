@@ -4,6 +4,7 @@ use Backend, Event;
 use System\Classes\PluginBase;
 use SublimeArts\SublimeStripe\Models\Settings;
 use SublimeArts\SublimeStripe\Models\User;
+use Stripe\Stripe;
 use RainLab\User\Models\User as BaseUser;
 
 /**
@@ -50,9 +51,13 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        /**
-         * Extend the RainLab User Model class
-         */
+        /** Check that required settings have been set */
+        Settings::checkRequired();
+
+        /** Set the Stripe API Key */
+        Stripe::setApiKey(Settings::get('stripe_secret_key'));
+
+        /** Extend the RainLab User Model class */
         BaseUser::extend(function($model) {
 
             $model->hasOne['user'] = [
@@ -77,9 +82,7 @@ class Plugin extends PluginBase
 
         });
 
-        /**
-         * Extend the RainLab User Model class
-         */
+        /** Extend the Product Model class */
         $productModelClass = Settings::productModelClass();
         $productModelClass::extend(function($model) {
 
@@ -95,6 +98,7 @@ class Plugin extends PluginBase
 
         });
 
+        /** Modify backend menus */
         Event::listen('backend.menu.extendItems', function($manager) {
 
             $manager->removeMainMenuItem('RainLab.User', 'user');

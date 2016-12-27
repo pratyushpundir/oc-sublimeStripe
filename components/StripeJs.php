@@ -20,8 +20,6 @@ class StripeJs extends ComponentBase
      */
     public function onRun()
     {
-        Settings::checkRequired();
-
         if ( ! Settings::get('minify_assets')) {
             $this->addJs('/plugins/sublimearts/sublimestripe/assets/dist/js/bundle.js');
         } else {
