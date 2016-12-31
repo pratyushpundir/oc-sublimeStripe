@@ -19,6 +19,6 @@ class Subscriptions extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('RainLab.User', 'user', 'subscriptions');
+        BackendMenu::setContext('SublimeArts.SublimeStripe', 'sublimestripe', 'subscriptions');
     }
 }

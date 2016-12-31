@@ -81,7 +81,7 @@ tabs:
             span: right
             required: true
             tab: Site Integration
-            comment: What should the backend menu item be labeled as. Ex. - 'Users & Payments'
+            comment: What should the backend menu item be labeled as. Default - 'Stripe Payments'
 
         post_uri:
             label: Post URI

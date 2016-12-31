@@ -98,42 +98,6 @@ class Plugin extends PluginBase
 
         });
 
-        /** Modify backend menus */
-        Event::listen('backend.menu.extendItems', function($manager) {
-
-            $manager->removeMainMenuItem('RainLab.User', 'user');
-            $manager->addMainMenuItems('RainLab.User', [
-                'user' => [
-                    'label' => (Settings::get('backend_menu_item_title')) ? Settings::get('backend_menu_item_title') : 'Users & Payments',
-                    'icon' => 'icon-cc-stripe',
-                    'iconSvg' => 'plugins/sublimearts/sublimestripe/assets/images/stripe-icon.svg',
-                    'url' => Backend::url('rainlab/user/users'),
-                    'permissions' => ['sublimearts.sublimestripe.*'],
-                ]
-            ]);
-            $manager->addSideMenuItems('RainLab.User', 'user', [
-                'users' => [
-                    'label' => 'Users',
-                    'icon' => 'icon-users',
-                    'url' => Backend::url('rainlab/user/users'),
-                    'permissions' => ['sublimearts.sublimestripe.*'],
-                ],
-                'singlecharges' => [
-                    'label' => 'Single Charges',
-                    'icon' => 'icon-cc-stripe',
-                    'url' => Backend::url('sublimearts/sublimestripe/singlecharges'),
-                    'permissions' => ['sublimearts.sublimestripe.*'],
-                ],
-                'subscriptions' => [
-                    'label' => 'Subscriptions',
-                    'icon' => 'icon-repeat',
-                    'url' => Backend::url('sublimearts/sublimestripe/subscriptions'),
-                    'permissions' => ['sublimearts.sublimestripe.*'],
-                ],
-            ]);
-
-        });
-
         /** Add some extra columns */
         Event::listen('backend.list.extendColumns', function($widget) {
 
@@ -147,7 +111,7 @@ class Plugin extends PluginBase
                 return;
             }
 
-            // Add extra columns
+            /** Add extra columns to the User backend list */
             $widget->addColumns([
                 'stripe_id' => [
                     'label' => 'Stripe ID',
@@ -210,29 +174,30 @@ class Plugin extends PluginBase
      */
     public function registerNavigation()
     {
-        return [];
         return [
             'sublimestripe' => [
-                'label'       => 'Sublime Stripe',
-                'url'         => Backend::url('sublimearts/sublimestripe/users'),
+                'label' => (Settings::get('backend_menu_item_title'))
+                            ? Settings::get('backend_menu_item_title')
+                            : 'Stripe Payments',
+                'url'         => Backend::url('sublimearts/sublimestripe/singlecharges'),
                 'icon'        => 'icon-cc-stripe',
                 'iconSvg'     => 'plugins/sublimearts/sublimestripe/assets/images/stripe-icon.svg',
                 'permissions' => ['sublimearts.sublimestripe.manage_sublime_stripe'],
                 'order'       => 500,
 
                 'sideMenu' => [
-                    'users' => [
-                        'label'       => 'Users',
-                        'icon'        => 'icon-users',
-                        'url'         => Backend::url('rainlab/user/users'),
-                        'permissions' => ['sublimearts.sublimestripe.manage_sublime_stripe']
-                    ],
                     'singlecharges' => [
-                        'label'       => 'Payments',
-                        'icon'        => 'icon-cc-stripe',
-                        'url'         => Backend::url('sublimearts/sublimestripe/singlecharges'),
-                        'permissions' => ['sublimearts.sublimestripe.manage_sublime_stripe']
-                    ]
+                        'label' => 'Single Charges',
+                        'icon' => 'icon-money',
+                        'url' => Backend::url('sublimearts/sublimestripe/singlecharges'),
+                        'permissions' => ['sublimearts.sublimestripe.*'],
+                    ],
+                    'subscriptions' => [
+                        'label' => 'Subscriptions',
+                        'icon' => 'icon-repeat',
+                        'url' => Backend::url('sublimearts/sublimestripe/subscriptions'),
+                        'permissions' => ['sublimearts.sublimestripe.*'],
+                    ],
                 ]
             ],
         ];

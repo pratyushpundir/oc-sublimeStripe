@@ -19,6 +19,6 @@ class SingleCharges extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('RainLab.User', 'user', 'singlecharges');
+        BackendMenu::setContext('SublimeArts.SublimeStripe', 'sublimestripe', 'singlecharges');
     }
 }
