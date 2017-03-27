@@ -96,16 +96,16 @@ class StripeBillableTest extends PluginTestCase
     /** @test */
     public function it_returns_stripe_active_status()
     {
-        $this->assertFalse($this->user->isActive());
+        $this->assertFalse($this->user->isStripeActive());
 
         $this->user->activate();
-        $this->assertFalse($this->user->isActive());
+        $this->assertFalse($this->user->isStripeActive());
 
         $this->user->activate('fake_stripe_id');
-        $this->assertTrue($this->user->isActive());
+        $this->assertTrue($this->user->isStripeActive());
 
         $this->user->deactivate();
-        $this->assertFalse($this->user->isActive());
+        $this->assertFalse($this->user->isStripeActive());
     }
 
     /** @test */
