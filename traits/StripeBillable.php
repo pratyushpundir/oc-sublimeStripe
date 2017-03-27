@@ -17,7 +17,7 @@ trait StripeBillable
      * Checks if the given user is active on Stripe
      * @return boolean
      */
-    public function isActive()
+    public function isStripeActive()
     {
         return (!! $this->stripe_active && $this->stripe_id != null);
     }

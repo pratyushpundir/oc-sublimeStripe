@@ -1,6 +1,6 @@
 <?php namespace SublimeArts\SublimeStripe\Models;
 
-use Model, Exception;
+use Model, ApplicationException;
 
 /**
  * Settings Model
@@ -59,7 +59,7 @@ class Settings extends Model
     {
         foreach (static::REQUIRED as $attribute => $attributeDescription) {
             if ( ! static::get($attribute) || static::get($attribute) == '' ) {
-                throw new Exception("{$attributeDescription} not set in SublimeArts.SublimeStripe backend settings!", 1);
+                throw new ApplicationException("{$attributeDescription} not set in SublimeArts.SublimeStripe backend settings!", 1);
             } else {
                 return true;
             }

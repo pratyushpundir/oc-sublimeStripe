@@ -1,7 +1,6 @@
 # ===================================
 #  Form Field Definitions
 # ===================================
-
 tabs:
 
     fields:
@@ -10,64 +9,104 @@ tabs:
             label: Stripe Publishable Key
             span: left
             required: true
-            tab: Stripe API
+            tab: API Keys
 
         stripe_secret_key:
             label: Stripe Secret Key
             span: right
             required: true
-            tab: Stripe API
+            tab: API Keys
 
         product_model:
             label: Product Model
             span: left
             required: true
-            tab: Model Mappings
+            tab: Product Model
             comment: Fully-qualified class name of your Product model. Ex. - 'SublimeArts\DemoShop\Models\Product'
-
-        # user_model:
-        #     label: User Model
-        #     span: right
-        #     tab: Model Mappings
-        #     comment: Fully-qualified class name of your User model. Ex. - 'RainLab\User\Models\User'
 
         id_attribute:
             label: Model Attribute for 'id'
             span: left
-            # type: partial
-            # path: '~/plugins/sublimearts/sublimestripe/models/settings/_attribute_selection.htm'
             required: true
-            tab: Model Mappings
+            tab: Product Model
             comment: Attribute on your model class that should be used for UNIQUELY identifying a record. Ex. - 'id'
 
         name_attribute:
             label: Model Attribute for 'name'
             span: right
             required: true
-            tab: Model Mappings
+            tab: Product Model
             comment: Attribute on your model class that should be used for the 'name' property needed by Stripe
 
         description_attribute:
             label: Model Attribute for 'description'
             span: left
             required: true
-            tab: Model Mappings
+            tab: Product Model
             comment: Attribute on your model class that should be used for the 'description' property needed by Stripe
 
         amount_attribute:
             label: Model Attribute for 'amount'
             span: right
             required: true
-            tab: Model Mappings
+            tab: Product Model
             comment: "Attribute on your model class that should be used for the 'amount' property needed by Stripe. NOTE: Needs to be in cents."
 
-        # target_model:
-        #     label: Target Model
+        subscribable_model:
+            label: Subscribable Plan Model
+            span: left
+            required: true
+            tab: Subscribable Model
+            comment: Fully-qualified class name of your Product model. Ex. - 'SublimeArts\DemoService\Models\Plan'
+
+        subscribable_id_attribute:
+            label: Model Attribute for 'id'
+            span: left
+            required: true
+            tab: Subscribable Model
+            comment: Attribute on your model class that should be used for UNIQUELY identifying a record. Ex. - 'id'
+        
+        subscribable_code_attribute:
+            label: Model Attribute for 'code'
+            span: right
+            required: true
+            tab: Subscribable Model
+            comment: Attribute on your model class that should be used as the 'code' property needed by Stripe. Ex. - 'free-plan', 'silver-plan', etc.
+
+        subscribable_name_attribute:
+            label: Model Attribute for 'name'
+            span: left
+            required: true
+            tab: Subscribable Model
+            comment: Attribute on your model class that should be used for the 'name' property needed by Stripe
+
+        subscribable_description_attribute:
+            label: Model Attribute for 'description'
+            span: right
+            required: true
+            tab: Subscribable Model
+            comment: Attribute on your model class that should be used for the 'description' property needed by Stripe
+
+        subscribable_amount_attribute:
+            label: Model Attribute for 'amount'
+            span: left
+            required: true
+            tab: Subscribable Model
+            comment: "Attribute on your model class that should be used for the 'amount' property needed by Stripe. NOTE: Needs to be in cents"
+
+        subscribable_interval_attribute:
+            label: Model Attribute for 'interval'
+            span: right
+            required: true
+            tab: Subscribable Model
+            comment: "Attribute on your model class that should be used for the 'interval' property needed by Stripe. This is how often Stripe should be applying a charge"
+
+        # subscribable_expiry_attribute:
+        #     label: Model Attribute for 'expiry'
         #     span: left
-        #     type: partial
-        #     path: '~/plugins/sublimearts/sublimestripe/models/settings/_target_model_selection.htm'
         #     required: true
-        #     tab: Custom
+        #     tab: Subscribable Model
+        #     comment: "Attribute on your model class that should be used to decide when the plan 'expires'. Should be a Carbon\\Carbon instance."
         
         container_html_element:
             label: Container Element
