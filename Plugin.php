@@ -51,8 +51,11 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
+        /**
+         * TODO: NEEDS A BETTER SOLUTION
+         */
         /** Check that required settings have been set */
-        Settings::checkRequired();
+        // Settings::checkRequired();
 
         /** Set the Stripe API Key */
         Stripe::setApiKey(Settings::get('stripe_secret_key'));
